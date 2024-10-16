@@ -1,0 +1,24 @@
+# Ignore Quartus generated files
+db/
+incremental_db/
+output_files/
+simulation/
+*.sof
+*.pof
+*.vcd
+*.sdf
+*.sta
+*.rpt
+*.html
+
+# Ignore user-specific settings
+*.synthesis
+*.simulation
+*.tcl
+*.jdi
+*.drc
+
+# Ignore backup files
+*.bak
+*.bck
+*.tmp
