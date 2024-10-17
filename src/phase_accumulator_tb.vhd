@@ -12,10 +12,10 @@ end entity phase_accumulator_tb;
 architecture testbench of phase_accumulator_tb is
 
     -- Signal Declarations
-    signal FSW       : std_logic_vector(7 downto 0);   -- Frequency Setting Word
     signal clock     : std_logic;                      -- Clock signal
     signal reset     : std_logic;                      -- Reset signal
     signal add_sub   : std_logic;                      -- Control signal for addition or subtraction
+    signal FSW       : std_logic_vector(7 downto 0);   -- Frequency Setting Word
     signal result    : std_logic_vector(7 downto 0);   -- Output result
 
     -- Constant for clock period
@@ -26,11 +26,11 @@ begin
     -- Instantiate the phase_accumulator
     uut: entity work.phase_accumulator
         port map (
-            FSW       => FSW,
-            clock     => clock,
-            reset     => reset,
-            add_sub   => add_sub,
-            result    => result
+            clock               => clock,
+            reset               => reset,
+            add_sub             => add_sub,
+            FSW(7 downto 0)     => FSW(7 downto 0),
+            result(7 downto 0)  => result(7 downto 0)
         );
 
     -- Clock Generation Process
@@ -58,7 +58,7 @@ begin
         wait for 80 ns;   -- Wait for multiple clock cycles
 
         FSW <= "00000101";    -- Set FSW to 5 (Second value for addition)
-        wait for 80 ns;   -- Wait for multiple clock cycles
+        wait for 250 ns;   -- Wait for multiple clock cycles
 
         -- Test Case 2: Subtraction
         add_sub <= '0';       -- Set to subtraction

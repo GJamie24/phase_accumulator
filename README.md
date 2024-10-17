@@ -1,7 +1,7 @@
 # Phase Accumulator Project
 
 ## Overview
-The Phase Accumulator Project is an educational VHDL-based design that implements a phase accumulator using LPM (Library of Parameterized Modules) components. It allows for the addition and subtraction of an 8-bit frequency setting word (FSW) through a user-controlled input, making it suitable for various digital signal processing applications, including software-defined radio (SDR) systems.
+The Phase Accumulator Project is an educational VHDL-based design that implements a phase accumulator using LPM (Library of Parameterized Modules) components. The lpm_add_sub model is fed by two inputs, one of which is a constant. The output of the adder is fed into a buffer (lpm D-Type Flip-Flops), whose output is fed back into the adder module. By setting one of the inputs as constant and a feedback loop, the adder acts as a counter.
 
 ## Features
 - Uses LPM components: `lpm_add_sub` for addition and subtraction and `lpm_ff` for storing the result.
